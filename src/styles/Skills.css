@@ -1,0 +1,126 @@
+/* src/styles/Skills.css */
+/* Import root variables from App.css or Navbar.css if not already globally available */
+/* @import url('./App.css'); */ /* Uncomment if you need to import root variables explicitly */
+
+.skills-section {
+    padding: 6rem 6rem; /* Standard section padding */
+    text-align: center;
+    /* Background color is now controlled dynamically by JS, but this can be a fallback */
+    background-color: rgb(255, 255, 255); /* Default white background */
+    color: rgb(0, 0, 0); /* Default black text */
+    position: relative;
+    overflow: hidden; /* To contain any elements that might exceed bounds */
+  }
+  
+  .skills-heading {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    font-weight: 700;
+    /* Text color is controlled dynamically by JS, but transition is here */
+    transition: color 0.5s ease-out; /* Smooth text color transition */
+  }
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive grid */
+    gap: 2.5rem; /* Space between skill cards */
+    max-width: 1200px; /* Limit grid width */
+    margin: 0 auto; /* Center the grid */
+  }
+  
+  .skill-card {
+    background: rgba(255, 255, 255, 0.05); /* Light transparent background for cards */
+    /* Border color is controlled dynamically by JS based on headingTextColor */
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    backdrop-filter: blur(5px);
+  }
+  
+  .skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.1); /* Slightly brighter on hover */
+  }
+  
+  .skill-icon-container {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      background: rgba(0, 0, 0, 0.05); /* Dark background for icon area initially */
+      border-radius: 50%;
+      padding: 10px;
+  }
+  
+  .skill-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .skill-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    /* Color controlled dynamically by JS, but transition is here */
+    transition: color 0.5s ease-out; /* Smooth text color transition */
+  }
+  
+  /* --- Media Queries for Mobile Devices --- */
+  
+  @media (max-width: 992px) {
+      .skills-section {
+        padding: 4rem 3rem;
+      }
+  
+      .skills-heading {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+      }
+  
+      .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 2rem;
+      }
+  
+      .skill-icon-container {
+          width: 60px;
+          height: 60px;
+      }
+  
+      .skill-name {
+          font-size: 1rem;
+      }
+  }
+  
+  @media (max-width: 480px) {
+      .skills-section {
+        padding: 3rem 1.5rem;
+      }
+  
+      .skills-heading {
+        font-size: 2rem;
+      }
+  
+      .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 1.5rem;
+      }
+  
+      .skill-icon-container {
+          width: 50px;
+          height: 50px;
+      }
+  
+      .skill-name {
+          font-size: 0.9rem;
+      }
+  }

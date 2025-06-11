@@ -28,6 +28,7 @@ body {
 
 /* Hero section styles */
 .hero {
+  overflow-x: hidden; /* Add this line */
   padding: 8rem 6rem 6rem;
   min-height: 100vh;
   display: flex;

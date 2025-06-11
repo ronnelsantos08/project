@@ -3,37 +3,141 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8rem 6rem; /* Adjust padding as needed */
-    min-height: 100vh; /* Make it at least the height of the viewport */
-    position: relative; /* For absolute positioning of elements if needed */
-    color: var(--text-primary); /* Inherit text color */
-  }
-  
-  .about-us-content {
-    max-width: 60%; /* Adjust width for text content */
-  }
-  
-  .about-us-content h1 {
-    font-size: 3rem; /* Adjust heading size */
+    padding-left: 50px;
+    padding-right: 50px;
+    min-height: 100vh; /* Keep this height for enough scroll room for parallax */
+    position: relative;
+    color: var(--text-primary);
+    overflow-x: hidden; /* Crucial to prevent horizontal scrollbars from the orb */
+}
+
+.about-us-content {
+    max-width: 60%;
+    position: relative;
+    z-index: 2;
+}
+
+.about-us-content h1 {
+    font-size: 3rem;
     margin-bottom: 1.5rem;
-  }
-  
-  .about-us-content p {
-    font-size: 1.1rem; /* Adjust paragraph size */
+}
+
+.about-us-content p {
+    font-size: 1.1rem;
     line-height: 1.7;
-    color: var(--text-secondary); /* Use secondary text color */
-  }
-  
-  .about-us-image-container {
-    width: 35%; /* Adjust width for image container */
-    position: sticky; /* Make the image follow scroll within its parent */
-    top: 20%; /* Adjust top position as needed */
-    height: fit-content; /* Adjust height based on content */
-  }
-  
-  .about-us-image {
-    width: 100%;
+    color: var(--text-secondary);
+}
+
+.about-us-image-container {
+    width: 35%; /* Keep width */
+    /* REMOVE the following properties that were for sticky: */
+    /* position: sticky; */
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
+    /* The container will now be positioned by flexbox, and image movement by JS */
+    height: fit-content;
+    z-index: 2;
+}
+
+.about-us-image {
+    width: 50%;
     height: auto;
-    border-radius: 12px; /* Optional: round the image corners */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Optional: add a shadow */
-  }
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    /* The transform for parallax will be applied via inline style in AboutUs.tsx */
+    /* Opacity and transition for fade-in are also handled inline */
+}
+
+/* Gradient Orb for About Us Section */
+.about-us-section .gradient-orb {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    top: 50%;
+    right: -150px;
+    transform: translateY(-50%);
+    background: radial-gradient(
+      circle,
+      rgba(108, 22, 162, 0.311) 0%,
+      rgba(74, 11, 113, 0.1) 25%,
+      rgba(66, 4, 105, 0) 70%
+    );
+    border-radius: 50%;
+    filter: blur(40px);
+    z-index: 1;
+}
+
+/* --- Media Queries for Mobile Devices --- */
+
+@media (max-width: 992px) { /* Tablets and smaller laptops */
+    .about-us-section {
+        overflow: hidden;
+        flex-direction: column;
+        align-items: center;
+        padding: 6rem 3rem;
+        min-height: auto;
+    }
+    .about-us-image {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .about-us-content {
+      max-width: 90%;
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .about-us-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-us-content p {
+        font-size: 1rem;
+    }
+
+    .about-us-image-container {
+      width: 70%;
+      position: relative; /* Keep relative on mobile for normal flow */
+      top: auto;
+      transform: none; /* Remove any lingering transforms on mobile */
+      margin: 0 auto;
+    }
+
+    .about-us-section .gradient-orb {
+      right: -100px;
+      width: 500px;
+      height: 500px;
+    }
+}
+
+@media (max-width: 480px) { /* Smaller mobile phones */
+    .about-us-section {
+      padding: 4rem 1.5rem;
+    }
+
+    .about-us-content {
+      margin-bottom: 3rem;
+      max-width: 100%;
+    }
+
+    .about-us-content h1 {
+      font-size: 2rem;
+    }
+
+    .about-us-content p {
+      font-size: 0.9rem;
+    }
+
+    .about-us-image-container {
+      width: 90%;
+    }
+
+    .about-us-section .gradient-orb {
+      right: -50px;
+      width: 350px;
+      height: 350px;
+      filter: blur(30px);
+    }
+}
