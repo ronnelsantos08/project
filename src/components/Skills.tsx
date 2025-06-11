@@ -30,7 +30,7 @@ const Skills: React.FC = () => {
 
   const handleScroll = useCallback(() => {
     if (sectionRef.current) {
-      const { top, height } = sectionRef.current.getBoundingClientRect();
+      const { top, } = sectionRef.current.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
 
       // Define the scroll range for the transition

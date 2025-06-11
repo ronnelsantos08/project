@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (heroRef.current) {
-        const { bottom, height } = heroRef.current.getBoundingClientRect();
+        const { bottom, } = heroRef.current.getBoundingClientRect();
         const viewportHeight = window.innerHeight;
 
         // Calculate how much of the section is still in view relative to its own height
