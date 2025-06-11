@@ -28,38 +28,101 @@
     margin: 0 auto; /* Center the grid */
   }
   
+ /* src/styles/Skills.css */
+
+/* Define your primary colors if they aren't globally available in :root or similar */
+/* These are placeholders, ensure they match your actual color variables */
+:root {
+    --primary: #6c63ff; /* Example primary color */
+    --primary-dark: #4b3eff; /* Example darker primary color */
+    --text-primary: #ffffff; /* Text color for dark backgrounds */
+  }
+  
   .skill-card {
-    background: rgba(255, 255, 255, 0.05); /* Light transparent background for cards */
-    /* Border color is controlled dynamically by JS based on headingTextColor */
+    /* Removed rgba background as we're using a gradient now */
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark)); /* Apply the gradient */
+    
+    /* Retain dynamic border control for JS, but set a subtle initial state */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border for the gradient card */
+  
     border-radius: 12px;
     padding: 1.5rem;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    backdrop-filter: blur(5px);
+    
+    /* Enhanced transitions for a smoother interaction */
+    transition: 
+      transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+      box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+      background 0.3s ease-out, /* Keep background transition if you want subtle changes */
+      border-color 0.3s ease-out; 
+    
+    /* Shadow for depth */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* Deeper shadow for dark gradient cards */
+    
+    backdrop-filter: blur(8px); /* Frosted glass effect */
+  
+    /* --- Light sweep additions for card START --- */
+    position: relative; /* Needed for absolute positioning of pseudo-element */
+    overflow: hidden; /* Clip the pseudo-element within the card bounds */
+    z-index: 0; /* Ensure the card doesn't sit on top of content below */
+    /* --- Light sweep additions for card END --- */
+  }
+  
+  /* Pseudo-element for the light sweep effect on the card */
+  .skill-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start the sweep from the left, fully outside */
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2); /* The light color of the sweep, slightly less opaque than button */
+    transform: skewX(-25deg); /* Angle the sweep for a dynamic look */
+    transition: left 0.4s ease-in-out; /* Control the speed of the sweep */
+    z-index: 1; /* Ensure it's above the card background */
+  }
+  
+  /* Trigger the sweep on hover */
+  .skill-card:hover::before {
+    left: 100%; /* Moves the sweep across the card to the right */
   }
   
   .skill-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
-    background: rgba(255, 255, 255, 0.1); /* Slightly brighter on hover */
+    transform: translateY(-10px); /* Slightly more lift on hover */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); /* More pronounced hover shadow */
+    /* You might not need a background change on hover if the sweep is enough */
+    /* background: linear-gradient(135deg, var(--primary-dark), var(--primary)); Reversed gradient or slightly different on hover */
+  }
+  
+  /* Ensure text and icons are visible on the new dark gradient background */
+  .skill-name {
+    /* This color is dynamically controlled by JS, but if you need a default fallback */
+    color: var(--text-primary); /* Should be white/light for the dark gradient */
+    transition: color 0.5s ease-out;
   }
   
   .skill-icon-container {
-      width: 80px;
-      height: 80px;
+      /* Adjust icon container background for better contrast on the gradient */
+      background: rgba(255, 255, 255, 0.1); /* Light transparent background for icon area */
+      border-radius: 50%;
+      padding: 10px;
+      margin-bottom: 1rem;
+      width: 150px; /* Keep consistent sizing */
+      height: 150px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1rem;
-      background: rgba(0, 0, 0, 0.05); /* Dark background for icon area initially */
-      border-radius: 50%;
-      padding: 10px;
+      overflow: hidden; /* Important for Lottie animations inside */
   }
+  
+  /* --- Media Queries (keep them as they are) --- */
+  @media (max-width: 992px) { /* ... */ }
+  @media (max-width: 480px) { /* ... */ }
   
   .skill-icon {
     width: 100%;
@@ -67,12 +130,7 @@
     object-fit: contain;
   }
   
-  .skill-name {
-    font-size: 1.1rem;
-    font-weight: 600;
-    /* Color controlled dynamically by JS, but transition is here */
-    transition: color 0.5s ease-out; /* Smooth text color transition */
-  }
+ 
   
   /* --- Media Queries for Mobile Devices --- */
   
@@ -92,8 +150,8 @@
       }
   
       .skill-icon-container {
-          width: 60px;
-          height: 60px;
+          width: 100px;
+          height: 100px;
       }
   
       .skill-name {

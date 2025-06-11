@@ -1,11 +1,12 @@
 // src/hooks/useScrollColorTransition.ts
-import { useState, useEffect, useCallback, type RefObject } from 'react'; // Added 'type' keyword here
+import { useState, useEffect, useCallback, type RefObject } from 'react';
 
 // Define a type for RGB color arrays
 type RgbColor = [number, number, number];
 
 interface UseScrollColorTransitionProps {
-  sectionRef: RefObject<HTMLElement>; // RefObject is used as a type here
+  // --- FIX IS HERE: Allow HTMLElement | null for sectionRef ---
+  sectionRef: RefObject<HTMLElement | null>; // Changed from HTMLElement to HTMLElement | null
   initialBgColor: RgbColor;
   targetBgColor: RgbColor;
   initialTextColors: RgbColor[];
@@ -45,7 +46,7 @@ export const useScrollColorTransition = ({
   };
 
   const handleScroll = useCallback(() => {
-    if (sectionRef.current) {
+    if (sectionRef.current) { // This null check is crucial and already in place
       const { top } = sectionRef.current.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
 
@@ -84,7 +85,7 @@ export const useScrollColorTransition = ({
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Set initial state on mount
+    handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);

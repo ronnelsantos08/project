@@ -4,12 +4,12 @@ import '../styles/AboutUs.css';
 import AboutUsImage from '/images/about.webp';
 
 const AboutUs: React.FC = () => {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLElement | null>(null); // Corrected RefObject type for consistency
   const [aboutUsBgColor, setAboutUsBgColor] = useState('rgba(10, 10, 10, 0.95)');
   const [h1TextColor, setH1TextColor] = useState('rgb(255, 255, 255)');
   const [pTextColor, setPTextColor] = useState('rgb(148, 163, 184)');
   const [imageOpacity, setImageOpacity] = useState(0); // For fade-in
-  const [imageParallaxY, setImageParallaxY] = useState(0); // For parallax scroll
+  // Removed imageParallaxY state as it's no longer needed
 
   const handleScroll = useCallback(() => {
     if (sectionRef.current) {
@@ -54,25 +54,19 @@ const AboutUs: React.FC = () => {
       const newPColor = `rgb(${Math.round(pR)}, ${Math.round(pG)}, ${Math.round(pB)})`;
       setPTextColor(newPColor);
 
-      // --- Parallax for Image ---
-      // 'top' is the distance from the viewport top to the section's top.
-      // We want the image to move slower than scroll, so apply a fraction of 'top'.
-      // A factor between 0 and 1 (e.g., 0.2) means it moves at 20% of scroll speed.
-      // A factor of 0.5 means it moves at 50% of scroll speed.
-      const parallaxFactor = 0.2; // Adjust this value to control the speed
-      const parallaxOffset = top * parallaxFactor;
-      setImageParallaxY(parallaxOffset);
-
+      // --- Parallax for Image (LOGIC REMOVED) ---
+      // The parallax calculation and setImageParallaxY call are removed.
     }
-  }, []);
+  }, []); // Dependencies remain the same, as parallax logic is gone
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    handleScroll();
+    handleScroll(); // Call once on mount to set initial state
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [handleScroll]);
+  }, [handleScroll]); // Dependency on handleScroll
 
+  // Effect for image fade-in (remains unchanged)
   useEffect(() => {
     const timer = setTimeout(() => {
       setImageOpacity(1);
@@ -91,7 +85,7 @@ const AboutUs: React.FC = () => {
       <div className="gradient-orb"></div>
 
       <div className="about-us-content">
-        <h1 style={{ color: h1TextColor }}>About Us</h1>
+        <h1 style={{ color: h1TextColor }}>About Me</h1>
         <p style={{ color: pTextColor }}>
         I'm Ronnel Santos, a passionate Information Technology freelancer based in Cavite, Philippines. With a Bachelor's degree in IT and hands-on experience in web development and data analysis, I bring a versatile skill set to every project I take on. I specialize in crafting dynamic, responsive websites and interactive front-end experiences using React, TypeScript, Vite, and GSAP.
 
@@ -105,11 +99,11 @@ Driven by curiosity and continuous learning, I enjoy turning ideas into polished
           src={AboutUsImage}
           alt="About Us"
           className="about-us-image"
-          // Apply both opacity for fade-in and transform for parallax
           style={{
             opacity: imageOpacity,
             transition: 'opacity 1s ease-in-out',
-            transform: `translateY(${imageParallaxY}px)`
+            // Removed transform: `translateY(${imageParallaxY}px)`
+            // The image will now remain in its natural position relative to its container.
           }}
         />
       </div>
