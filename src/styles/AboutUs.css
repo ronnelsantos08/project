@@ -1,0 +1,39 @@
+/* src/styles/AboutUs.css */
+.about-us-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8rem 6rem; /* Adjust padding as needed */
+    min-height: 100vh; /* Make it at least the height of the viewport */
+    position: relative; /* For absolute positioning of elements if needed */
+    color: var(--text-primary); /* Inherit text color */
+  }
+  
+  .about-us-content {
+    max-width: 60%; /* Adjust width for text content */
+  }
+  
+  .about-us-content h1 {
+    font-size: 3rem; /* Adjust heading size */
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-us-content p {
+    font-size: 1.1rem; /* Adjust paragraph size */
+    line-height: 1.7;
+    color: var(--text-secondary); /* Use secondary text color */
+  }
+  
+  .about-us-image-container {
+    width: 35%; /* Adjust width for image container */
+    position: sticky; /* Make the image follow scroll within its parent */
+    top: 20%; /* Adjust top position as needed */
+    height: fit-content; /* Adjust height based on content */
+  }
+  
+  .about-us-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px; /* Optional: round the image corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Optional: add a shadow */
+  }

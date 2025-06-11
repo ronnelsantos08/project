@@ -1,0 +1,513 @@
+/* src/styles/Navbar.css */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+/* ... other imports ... */
+
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --bg-dark: #0a0a0a;
+  --bg-card: rgba(255, 255, 255, 0.1);
+  --border-color: rgba(255, 255, 255, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif; /* Keep Inter as default, Orbitron for specific elements */
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 6rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  background: rgba(10, 10, 10, 0.8);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logocontainer {
+  display: flex;
+  align-items: center; /* Vertically align image and text */
+  gap: 10px; /* Space between logo image and text */
+}
+
+.logotext {
+  display: flex;
+  flex-direction: column;
+}
+
+.logotext h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  background: linear-gradient(90deg, #ADD8E6 0%, #6A5ACD 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 5px rgba(100, 100, 250, 0.5), 0 0 10px rgba(100, 100, 250, 0.2);
+  margin-bottom: -5px; /* Adjust to bring p tag closer */
+}
+
+.logotext p {
+  font-family: 'Orbitron', sans-serif;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  background: linear-gradient(90deg, #ADD8E6 0%, #6A5ACD 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 5px rgba(100, 100, 250, 0.5), 0 0 10px rgba(100, 100, 250, 0.2);
+}
+
+/* Default desktop styles for nav-links */
+.nav-links {
+  display: flex;
+  gap: 3rem;
+  transition: all 0.3s ease-in-out; /* Smooth transition for opening/closing */
+}
+
+.nav-links a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  /* Keep the transition for color change */
+  transition: color 0.3s ease; 
+
+  /* Light sweep additions for nav links */
+  position: relative;
+  overflow: hidden;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  z-index: 0;
+}
+
+/* Pseudo-element for the light sweep on nav links */
+.nav-links a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: skewX(-25deg);
+  transition: left 0.4s ease-in-out;
+  z-index: -1; /* Ensure it's below the link text */
+}
+
+/* Hover effect for the sweep on nav links */
+.nav-links a:hover::before {
+  left: 100%; /* Move the sweep across the link to the right */
+}
+
+.nav-links a:hover {
+  color: var(--primary); /* KEPT THIS: Text color changes to primary color on hover */
+}
+
+
+.auth-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.auth-buttons button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.signup {
+  background: var(--primary);
+  color: var(--text-primary);
+}
+
+.signup:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Hamburger Menu Toggle Button */
+.menu-toggle {
+  display: none; /* Hidden by default on desktop */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 101; /* Ensure it's above other content when open */
+}
+
+.hamburger {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-primary);
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+/* Media Queries for Mobile View */
+@media (max-width: 992px) { /* Adjust breakpoint as needed */
+  nav {
+    padding: 1.5rem 3rem;
+  }
+
+  /* Hide regular nav links and auth buttons on mobile */
+  .nav-links,
+  .auth-buttons {
+    display: none;
+  }
+
+  /* Show the menu toggle button */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Mobile menu styles when open */
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0; /* Align with top of nav */
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background: rgba(10, 10, 10, 0.95); /* Slightly darker background */
+    backdrop-filter: blur(20px);
+    justify-content: center;
+    align-items: center;
+    gap: 2rem; /* Space out links vertically */
+    z-index: 99; /* Below toggle button */
+    overflow-y: auto; /* Enable scrolling for many links */
+  }
+
+  .nav-links.open a {
+    font-size: 1.8rem; /* Larger links for mobile */
+    padding: 0.5rem 0;
+    opacity: 0; /* Start hidden for animation */
+    animation: fadeInLink 0.5s forwards; /* Fade in effect */
+
+    /* Ensure light sweep works on mobile menu links as well */
+    position: relative;
+    overflow: hidden;
+    /* Reset padding or adjust for mobile display if needed */
+    padding: 0.5rem 1rem; /* Example: more padding for mobile links */
+  }
+  .nav-links.open a:nth-child(1) { animation-delay: 0.1s; }
+  .nav-links.open a:nth-child(2) { animation-delay: 0.2s; }
+  .nav-links.open a:nth-child(3) { animation-delay: 0.3s; }
+  .nav-links.open a:nth-child(4) { animation-delay: 0.4s; }
+  .nav-links.open a:nth-child(5) { animation-delay: 0.5s; }
+
+
+  /* Styles for the hamburger icon when menu is open */
+  .menu-toggle.open .hamburger:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu-toggle.open .hamburger:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.open .hamburger:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Hide auth buttons in mobile menu, or move them into nav-links.open if desired */
+  .auth-buttons {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 1.5rem 2rem;
+  }
+  .logotext h1 {
+    font-size: 1.2rem;
+  }
+  .logotext p {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    padding: 1rem 1.5rem;
+  }
+  .logo img {
+    height: 35px;
+  }
+  .logotext h1 {
+    font-size: 1rem;
+  }
+  .logotext p {
+    font-size: 0.5rem;
+  }
+}
+
+
+/* Fade in animation for menu links */
+@keyframes fadeInLink {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add these to your App.css or wherever you have the main hero styles */
+.hero {
+  padding: 8rem 6rem 6rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 650px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 5rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, #ffffff 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+  max-width: 580px;
+}
+
+.cta-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+/* START: Light sweep styles applied to CTA buttons */
+.cta-button {
+  padding: 1.2rem 2.5rem;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  /* Light sweep additions */
+  position: relative; /* Needed for absolute positioning of pseudo-element */
+  overflow: hidden; /* Clip the pseudo-element within the button bounds */
+}
+
+/* Pseudo-element for the light sweep on .cta-button */
+.cta-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%; /* Start the sweep from the left, fully outside */
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3); /* The light color of the sweep */
+  transform: skewX(-25deg); /* Angle the sweep for a dynamic look */
+  transition: left 0.4s ease-in-out; /* Control the speed of the sweep */
+  z-index: 1; /* Ensure it's above the button background but below the text */
+}
+
+.cta-button-secondary {
+  padding: 1.2rem 2.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  /* Light sweep additions */
+  position: relative; /* Needed for absolute positioning of pseudo-element */
+  overflow: hidden; /* Clip the pseudo-element within the button bounds */
+}
+
+/* Pseudo-element for the light sweep on .cta-button-secondary */
+.cta-button-secondary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%; /* Start the sweep from the left, fully outside */
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3); /* The light color of the sweep */
+  transform: skewX(-25deg); /* Angle the sweep for a dynamic look */
+  transition: left 0.4s ease-in-out; /* Control the speed of the sweep */
+  z-index: 1; /* Ensure it's above the button background but below the text */
+}
+
+/* Hover effect for the sweep (moved here for clarity) */
+.cta-button:hover::before,
+.cta-button-secondary:hover::before {
+  left: 100%; /* Move the sweep across the button to the right */
+}
+/* END: Light sweep styles applied to CTA buttons */
+
+.stats-container {
+  display: flex;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff, var(--primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.hero-graphics {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50%;
+  height: 100%;
+  z-index: 1;
+}
+
+.gradient-orb {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  right: -200px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.15) 0%,
+    rgba(99, 102, 241, 0.1) 25%,
+    rgba(99, 102, 241, 0) 70%
+  );
+  border-radius: 50%;
+  filter: blur(40px);
+}
+
+.floating-cards {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.card {
+  position: absolute;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.card-1 {
+  width: 300px;
+  height: 200px;
+  top: 20%;
+  right: 20%;
+  --rotation: -15deg;
+  transform: rotate(var(--rotation));
+  animation: float 6s ease-in-out infinite;
+}
+
+.card-2 {
+  width: 250px;
+  height: 150px;
+  top: 40%;
+  right: 40%;
+  --rotation: 10deg;
+  transform: rotate(var(--rotation));
+  animation: float 8s ease-in-out infinite;
+}
+
+.card-3 {
+  width: 200px;
+  height: 120px;
+  top: 60%;
+  right: 30%;
+  --rotation: -5deg;
+  transform: rotate(var(--rotation));
+  animation: float 7s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--rotation));
+  }
+  50% {
+    transform: translateY(-20px) rotate(var(--rotation));
+  }
+}
+
+@media (max-width: 1200px) {
+  .hero h1 {
+    font-size: 4rem;
+  }
+
+  .hero-graphics {
+    opacity: 0.5;
+  }
+}
