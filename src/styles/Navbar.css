@@ -134,7 +134,7 @@ nav {
   gap: 1rem;
 }
 
-.auth-buttons button {
+.auth-buttons .message {
   padding: 0.8rem 1.5rem;
   border-radius: 12px;
   border: none;
@@ -142,17 +142,18 @@ nav {
   font-size: 0.95rem;
   font-weight: 500;
   transition: all 0.3s ease;
-}
-
-.signup {
-  background: var(--primary);
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
   color: var(--text-primary);
+  text-decoration: none; /* Add this to make <a> look like a button */
+  display: inline-block;
 }
 
-.signup:hover {
+
+.auth-buttons .message:hover {
   background: var(--primary-dark);
   transform: translateY(-2px);
 }
+
 
 /* Hamburger Menu Toggle Button */
 .menu-toggle {

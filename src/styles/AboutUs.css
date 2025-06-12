@@ -45,17 +45,18 @@
 }
 
 .about-us-image {
-  width: 60%;
+  width: 70%; /* Fill container width */
   height: auto;
   border-radius: 8px;
 
   /* Defined border for structure */
   border: 1px solid rgba(0, 0, 0, 0.08); 
 
-  /* Stronger box shadow for depth (border shadow effect) */
+  /* Stronger box shadow for depth with color shade */
   box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.1),  /* soft shadow close to image */
-    0 10px 25px rgba(0, 0, 0, 0.15); /* deeper, spread-out shadow */
+    0 8px 16px rgba(0, 150, 255, 0.2),  /* Soft blue glow */
+    0 15px 30px rgba(147, 51, 234, 0.15), /* Purple spread */
+    0 25px 50px rgba(0, 0, 0, 0.3); /* Deeper, darker shadow */
 
   /* 3D rotation for depth */
   transform: rotateY(10deg) rotateX(5deg);
@@ -63,6 +64,13 @@
 
   /* Optional: enhances anti-aliasing */
   will-change: transform;
+
+  /* Add a subtle gradient overlay for more color shade */
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(60, 150, 255, 0.05), /* Light blue */
+    rgba(147, 51, 234, 0.05)  /* Light purple */
+  );
 }
 
 

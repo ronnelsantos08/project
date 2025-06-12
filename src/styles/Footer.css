@@ -1,0 +1,224 @@
+
+/* Import Google Fonts for Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+/* Font Awesome CSS import removed from here as it's handled in App.js */
+
+/* Basic reset for padding and margin */
+.footer * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Footer main container */
+.footer {
+    font-size: 1rem; /* Base font size for clarity */
+    width: 95%; /* Slightly wider footer */
+    background-color: #111111; /* Darker background for business look */
+    color: #E0E0E0; /* Light gray text for contrast */
+    padding: 40px 0; /* More vertical padding */
+    border-radius: 15px; /* More pronounced rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 200, 255, 0.15), /* Subtle blue glow */
+                0 0 50px rgba(150, 0, 255, 0.1); /* Subtle purple glow */
+    border: 1px solid rgba(50, 50, 50, 0.5); /* Faint border */
+    margin-top: 50px; /* Space from content above */
+    position: relative; /* For backdrop and orb positioning */
+    overflow: hidden; /* Hide overflowing elements like blur */
+}
+
+/* Container for internal footer content */
+.container {
+    width: 100%;
+    max-width: 1200px; /* Max width for desktop readability */
+    margin: 0 auto;
+    padding: 0 40px; /* Adjusted padding */
+}
+
+/* Layout for footer content sections */
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr; /* Adjusted column distribution for logo/links/social */
+    gap: 30px; /* Spacing between grid columns */
+    align-items: flex-start; /* Align items to the top of their grid cells */
+    padding-bottom: 30px; /* Space above bottom section */
+    border-bottom: 1px solid rgba(50, 50, 50, 0.3); /* Subtle separator line */
+}
+
+/* Footer logo styling */
+.footer-logo {
+    font-size: 2.2rem; /* Larger logo text */
+    font-weight: 700; /* Bold logo */
+    color: #00BFFF; /* Bright blue for logo */
+    text-shadow: 0 0 10px rgba(0, 191, 255, 0.5); /* Glowing effect for logo */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Footer navigation menu */
+.footer-links {
+    text-align: left; /* Align links to the left */
+}
+
+.footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu li {
+    margin-bottom: 12px; /* Space between links */
+}
+
+.footer-menu a {
+    color: #A0A0A0; /* Slightly desaturated link color */
+    text-decoration: none;
+    font-size: 1.05rem; /* Slightly larger link font */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    position: relative;
+    padding-left: 15px; /* Space for bullet/indicator */
+}
+.footer-menu a::before {
+    content: '•'; /* Futuristic bullet point */
+    color: #00BFFF; /* Bright blue for bullets */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    opacity: 0.7;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.footer-menu a:hover {
+    color: #00BFFF; /* Bright blue on hover */
+    text-shadow: 0 0 5px rgba(0, 191, 255, 0.7); /* Subtle glow on hover */
+}
+.footer-menu a:hover::before {
+    opacity: 1;
+    color: #9333EA; /* Change bullet color on hover */
+}
+
+
+/* Footer social icons */
+.footer-social {
+    text-align: right; /* Align social icons to the right */
+}
+
+.social-icons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin-left: 15px; /* Space between icons */
+}
+
+.social-icons a {
+    color: #E0E0E0; /* Default icon color */
+    text-decoration: none;
+    font-size: 1.6rem; /* Larger icon size */
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(100, 100, 100, 0.4); /* Subtle border */
+    border-radius: 50%; /* Circular background */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #FFFFFF; /* White on hover */
+    background-color: rgba(0, 191, 255, 0.2); /* Blue tint on hover */
+    border-color: #00BFFF; /* Blue border on hover */
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.6); /* Glow effect */
+    transform: translateY(-3px); /* Slight lift */
+}
+
+/* Footer bottom section (copyright) */
+.footer-bottom {
+    margin-top: 25px; /* Adjusted margin */
+    text-align: center;
+    font-size: 0.85rem; /* Smaller copyright text */
+    color: #808080; /* Dimmer copyright text */
+}
+.footer-bottom p {
+    margin: 0;
+}
+
+/* Attribute text */
+.attribute {
+    position: absolute;
+    bottom: 10px;
+    font-size: 0.75rem;
+    color: #A0A0A0;
+}
+.attribute a {
+    color: #00BFFF;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+.attribute a:hover {
+    color: #9333EA;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer {
+        width: 95%;
+        padding: 30px 0;
+        border-radius: 10px;
+    }
+    .container {
+        padding: 0 20px;
+    }
+    .footer-content {
+        grid-template-columns: repeat(1, 1fr); /* Stack columns */
+        row-gap: 30px;
+        text-align: center; /* Center text when stacked */
+    }
+    .footer-logo {
+        text-align: center;
+    }
+    .footer-links, .footer-social {
+        text-align: center; /* Center links and social icons */
+    }
+    .footer-menu li {
+        display: block; /* Stack navigation links */
+        margin-bottom: 10px;
+        margin-right: 0; /* Remove inline margin */
+    }
+    .footer-menu a {
+        padding-left: 0; /* Remove padding for bullet when stacked */
+    }
+    .footer-menu a::before {
+        content: ''; /* Hide bullet when stacked */
+    }
+    .social-icons {
+        justify-content: center; /* Center social icons list */
+    }
+    .social-icons li {
+        margin: 0 8px; /* Adjust spacing for stacked social icons */
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 20px 0;
+    }
+    .footer-logo {
+        font-size: 1.8rem;
+    }
+    .footer-menu a {
+        font-size: 0.95rem;
+    }
+    .social-icons a {
+        font-size: 1.4rem;
+        width: 35px;
+        height: 35px;
+    }
+}

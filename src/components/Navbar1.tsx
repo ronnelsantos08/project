@@ -42,8 +42,15 @@ const Navbar: React.FC = () => {
       </div>
 
       <div className="auth-buttons">
-        <button className="signup">Message Us</button>
-      </div>
+  <a
+    href="https://m.me/ronnelsantos08" // Replace with actual username
+    target="_blank"
+    rel="noopener noreferrer"
+    className="message"
+  >
+    Message Us
+  </a>
+</div>
     </nav>
   );
 };
