@@ -200,7 +200,7 @@ body {
 }
 
 .card {
-  opacity: .8;
+  opacity: 0.8;
   overflow: hidden;
   position: absolute;
   background: var(--bg-card);
@@ -208,8 +208,19 @@ body {
   border-radius: 20px;
   border: 1px solid var(--border-color);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transition: 
+    transform 0.3s ease, 
+    opacity 0.3s ease, 
+    backdrop-filter 0.3s ease, 
+    box-shadow 0.3s ease;
 }
 
+.card:hover {
+  opacity: 1;
+  z-index: 5;
+}
+
+/* Individual card styles */
 .card-1 {
   width: 400px;
   height: 300px;

@@ -1,0 +1,201 @@
+
+  /* Import Google Fonts for Inter */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+
+  /* Base styles for the app container */
+  .app-container {
+    gap: 3rem;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #1F2937, #000000); /* from-gray-900 to-black */
+    color: #F3F4F6; /* text-gray-100 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem; /* p-4 */
+    font-family: 'Inter', sans-serif;
+  }
+
+
+  /* Responsive padding for app container */
+  @media (min-width: 640px) { /* sm breakpoint */
+    .app-container {
+      padding: 1.5rem; /* sm:p-6 */
+    }
+  }
+  @media (min-width: 1024px) { /* lg breakpoint */
+    .app-container {
+      padding: 2rem; /* lg:p-8 */
+    }
+  }
+
+  /* Styles for the main page title */
+  .main-title {
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: 800; /* font-extrabold */
+    background-image: linear-gradient(to right, #60A5FA, #9333EA); /* from-blue-400 to-purple-600 */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 2.5rem; /* mb-10 */
+    text-align: center;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.25); /* drop-shadow-lg */
+    animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+  }
+
+  /* Responsive font sizes for main title */
+  @media (min-width: 640px) { /* sm breakpoint */
+    .main-title {
+      font-size: 3rem; /* sm:text-5xl */
+    }
+  }
+  @media (min-width: 1024px) { /* lg breakpoint */
+    .main-title {
+      font-size: 3.75rem; /* lg:text-6xl */
+    }
+  }
+
+  /* Keyframes for the pulse animation */
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: .8;
+    }
+  }
+
+  /* ProjectBox component container */
+  .project-box {
+    margin-bottom: 5%;
+    background-color: #1F2937; /* bg-gray-800 */
+    border-radius: 1rem; /* rounded-2xl */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1), 0 0 40px rgba(59, 130, 246, 0.2); /* shadow-2xl shadow-blue-500/20 */
+    padding: 1.5rem; /* p-6 */
+    max-width: 24rem; /* max-w-sm */
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    border: 1px solid #374151; /* border border-gray-700 */
+  }
+
+  /* Responsive max-width for project box */
+  @media (min-width: 640px) { /* sm breakpoint */
+    .project-box {
+      max-width: 28rem; /* sm:max-w-md */
+    }
+  }
+  @media (min-width: 768px) { /* md breakpoint */
+    .project-box {
+      max-width: 32rem; /* md:max-w-lg */
+    }
+  }
+  @media (min-width: 1024px) { /* lg breakpoint */
+    .project-box {
+      max-width: 36rem; /* lg:max-w-xl */
+    }
+  }
+
+  /* ProjectBox hover effects */
+  .project-box:hover {
+    transform: scale(1.05); /* hover:scale-105 */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1), 0 0 50px rgba(59, 130, 246, 0.5); /* hover:shadow-blue-500/50 */
+    border-color: #3B82F6; /* hover:border-blue-500 */
+  }
+
+  /* Flex container inside ProjectBox */
+  .project-content-row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; /* flex-col */
+    align-items: center; /* items-center */
+    gap: 1.5rem; /* gap-6 */
+  }
+
+  /* Responsive flex direction and alignment for content row */
+  @media (min-width: 640px) { /* sm breakpoint */
+    .project-content-row {
+      flex-direction: row; /* sm:flex-row */
+      align-items: flex-start; /* sm:items-start */
+    }
+  }
+
+  /* Media container styling (for video/image) */
+  .media-container {
+    flex-shrink: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.75rem; /* rounded-xl */
+    border: 2px solid #A78BFA; /* border-2 border-purple-500 */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1), 0 0 15px rgba(167, 139, 250, 0.3);
+    overflow: hidden; /* Ensure video/image stays within bounds */
+  }
+
+  /* Responsive media container size */
+  @media (min-width: 640px) { /* sm breakpoint */
+    .media-container {
+    width: 100%;
+    height: 100%;
+    }
+  }
+
+  /* Styling for the video element inside media-container */
+  .project-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures video covers the area without distortion */
+    display: block; /* Removes extra space below video */
+  }
+
+  /* Image overlay for futuristic look (applied to media container) */
+  .image-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 0.75rem;
+    background: linear-gradient(to bottom right, transparent, transparent, rgba(59, 130, 246, 0.2));
+    pointer-events: none; /* Allows interaction with content behind the overlay */
+  }
+
+  /* Content area for title and description */
+  .project-text-content {
+    flex-grow: 1; /* flex-grow */
+    text-align: center; /* text-center */
+  }
+
+  /* Responsive text alignment for content area */
+  @media (min-width: 640px) { /* sm breakpoint */
+    .project-text-content {
+      text-align: left; /* sm:text-left */
+    }
+  }
+
+  /* Project title styling */
+  .project-title {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 800; /* font-extrabold */
+    color: #60A5FA; /* text-blue-400 */
+    margin-bottom: 0.75rem; /* mb-3 */
+    line-height: 1.25; /* leading-tight */
+    letter-spacing: 0.05em; /* tracking-wider */
+  }
+
+  /* Responsive font size for project title */
+  @media (min-width: 640px) { /* sm breakpoint */
+    .project-title {
+      font-size: 2.25rem; /* sm:text-4xl */
+    }
+  }
+
+  /* Project description styling */
+  .project-description {
+    color: #D1D5DB; /* text-gray-300 */
+    font-size: 1rem; /* text-base */
+    line-height: 1.625; /* leading-relaxed */
+  }
+
+  /* Responsive font size for project description */
+  @media (min-width: 640px) { /* sm breakpoint */
+    .project-description {
+      font-size: 1.125rem; /* sm:text-lg */
+    }
+  }
