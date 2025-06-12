@@ -65,7 +65,7 @@ function NewFooter() {
                 </li>
 
               <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a></li>
-              <li><a href="www.linkedin.com/in/ronnel-santos-16aba8280" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in"></i></a></li>
+              <li><a href="https://www.linkedin.com/in/ronnel-santos-16aba8280" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in"></i></a></li>
             </ul>
           </div>
         </div>
