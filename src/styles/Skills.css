@@ -13,6 +13,7 @@
   }
   
   .skills-heading {
+    font-family: "Orbitron", sans-serif;
     font-size: 3rem;
     margin-bottom: 3rem;
     font-weight: 700;
@@ -101,6 +102,7 @@
   
   /* Ensure text and icons are visible on the new dark gradient background */
   .skill-name {
+    font-family: "Orbitron", sans-serif;
     /* This color is dynamically controlled by JS, but if you need a default fallback */
     color: var(--text-primary); /* Should be white/light for the dark gradient */
     transition: color 0.5s ease-out;

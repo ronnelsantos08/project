@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
       {/* Nav links - conditionally apply 'open' class */}
       <div className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
         <a href="#" onClick={() => setIsMenuOpen(false)}>Home</a>
-        <a href="#" onClick={() => setIsMenuOpen(false)}>About Us</a>
+        <a href="#" onClick={() => setIsMenuOpen(false)}>About Me</a>
         <a href="#" onClick={() => setIsMenuOpen(false)}>Projects</a>
         <a href="#" onClick={() => setIsMenuOpen(false)}>Services</a>
         <a href="#" onClick={() => setIsMenuOpen(false)}>Contact Us</a>

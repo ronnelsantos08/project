@@ -3,12 +3,22 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 50px;
-    padding-right: 50px;
-    min-height: 100vh; /* Keep this height for enough scroll room for parallax */
+    padding-left: 70px; /* Increased left padding for more space */
+    padding-right: 70px; /* Increased right padding for more space */
+    min-height: 100vh; /* Slightly increased min-height */
     position: relative;
     color: var(--text-primary);
-    overflow-x: hidden; /* Crucial to prevent horizontal scrollbars from the orb */
+    overflow-x: hidden;
+    /* Add a subtle border at the bottom to visually separate the section */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.about-us-content h1 {
+  font-family: "Newsreader", serif;
+  font-size: 3.75rem; /* Adjusted font size */
+  font-weight: 600; /* Semi-bold for a strong heading */
+  color: var(--heading-primary); /* Assuming you have a specific heading color */
+  letter-spacing: -0.01em; /* Slightly reduce letter spacing for a cleaner look */
+  
 }
 
 .about-us-content {
@@ -17,56 +27,56 @@
     z-index: 2;
 }
 
-.about-us-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-}
 
 .about-us-content p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--text-secondary);
+  font-family: "Newsreader", serif;
+  font-size: 1.5rem; /* Slightly reduced font size for better readability */
+  line-height: 1.8; /* Improved line height for better reading experience */
+  color: var(--text-secondary);
+  /* Add a subtle text shadow for depth */
+  text-shadow: 0.5px 0.5px 0 rgba(0, 0, 0, 0.01);
 }
 
 .about-us-image-container {
-    width: 35%; /* Keep width */
-    /* REMOVE the following properties that were for sticky: */
-    /* position: sticky; */
-    /* top: 50%; */
-    /* transform: translateY(-50%); */
-    /* The container will now be positioned by flexbox, and image movement by JS */
-    height: fit-content;
-    z-index: 2;
+  width: 30%; /* Increased width for the image container */
+  z-index: 2;
+  /* Add a subtle perspective to the container for a slight 3D effect */
+  perspective: 300px;
 }
 
 .about-us-image {
-    width: 50%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    /* The transform for parallax will be applied via inline style in AboutUs.tsx */
-    /* Opacity and transition for fade-in are also handled inline */
+  width: 60%; /* Slightly reduced image width within the container */
+  height: auto;
+  border-radius: 8px; /* Slightly less rounded corners for a more formal feel */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* Refined box shadow */
+  /* Add a subtle border to define the image edge */
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  /* The transform for parallax will be applied via inline style in AboutUs.tsx */
+  /* Opacity and transition for fade-in are also handled inline */
+  /* Add a slight rotation in the container to create visual interest */
+  transform: rotateY(5deg) rotateX(2deg);
+  transform-style: preserve-3d; /* Required for the perspective effect on the container */
 }
 
 /* Gradient Orb for About Us Section */
 .about-us-section .gradient-orb {
-    position: absolute;
-    width: 700px;
-    height: 700px;
-    top: 50%;
-    right: -150px;
-    transform: translateY(-50%);
-    background: radial-gradient(
-      circle,
-      rgba(108, 22, 162, 0.311) 0%,
-      rgba(74, 11, 113, 0.1) 25%,
-      rgba(66, 4, 105, 0) 70%
-    );
-    border-radius: 50%;
-    filter: blur(40px);
-    z-index: 1;
+  position: absolute;
+  width: 600px; /* Increased orb size */
+  height: 600px; /* Increased orb size */
+  top: 55%; /* Slightly adjusted top position */
+  right: -200px; /* Adjusted right position */
+  transform: translateY(-50%);
+  background: radial-gradient(
+    circle,
+    rgba(108, 22, 162, 0.25) 0%, /* Slightly less intense initial color */
+    rgba(74, 11, 113, 0.08) 30%, /* Reduced intensity further */
+    rgba(66, 4, 105, 0) 75% /* Slightly shifted the fade-out point */
+  );
+  border-radius: 50%;
+  filter: blur(50px); /* Increased blur for a softer effect */
+  z-index: 1;
+  opacity: 0.8; /* Slightly reduce opacity */
 }
-
 /* --- Media Queries for Mobile Devices --- */
 
 @media (max-width: 992px) { /* Tablets and smaller laptops */
@@ -84,7 +94,7 @@
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
     .about-us-content {
-      max-width: 90%;
+      max-width: 100%;
       margin-bottom: 4rem;
       text-align: center;
     }

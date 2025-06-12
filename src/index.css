@@ -19,3 +19,24 @@ body {
   -webkit-font-smoothing: antialiased; /* 12 */
   -moz-osx-font-smoothing: grayscale; /* 12 */
 }
+
+:root {
+  --background-dark: #0F172A; /* Dark slate background */
+  --text-primary: #E2E8F0; /* Light text for dark backgrounds */
+  --text-secondary: #CBD5E1; /* Slightly less prominent text */
+  --heading-primary: #F8FAFC; /* White for main headings */
+  --accent-purple: #6A0DAD; /* Purple accent */
+  --accent-red: #C70039; /* Red accent */
+  --box-background: #1E293B; /* Slightly lighter dark for boxes */
+  --border-color: rgba(255, 255, 255, 0.1); /* Subtle white border */
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif; /* Default body font */
+  background-color: var(--background-dark); /* Apply dark background globally */
+  color: var(--text-primary);
+}
+
+/* Import Google Fonts - Newsreader for headings, Open Sans for body text */
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Inter:wght@300;400;500;600;700&display=swap');

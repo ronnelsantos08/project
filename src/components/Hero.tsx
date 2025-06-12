@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
       >
         <div className="hero-content">
           <h1>Empowering Your Business<br/>Through Intelligent Web Solutions.</h1>
-          <p>From captivating logos to robust web applications and digital invitations, I deliver comprehensive digital solutions designed to amplify your brand, streamline operations, and connect you with your audience effectively. Your vision, realized digitally.</p>
+          <p></p>
           <div className="cta-group">
             <button className="cta-button">Start Now</button>
             <button className="cta-button-secondary">Projects</button>
@@ -60,16 +60,16 @@ const Hero: React.FC = () => {
 
           <div className="stats-container">
             <div className="stat-item">
-              <span className="stat-number">Web Invitation</span>
-              <span className="stat-label">Create digital product to enhance user engagement and provide seamless experiences</span>
+              <span className="stat-number">Create</span>
+              <span className="stat-label"> We build groundbreaking solutions that solve real-world challenges.</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">Personal Websites</span>
-              <span className="stat-label">Showcase your unique story, portfolio, or brand with a beautifully crafted online presence. From concept to launch, I build custom personal websites that make a lasting impression.</span>
+              <span className="stat-number">Innovate</span>
+              <span className="stat-label">We continuously push boundaries, seeking new possibilities and smarter ways forward.</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">Business Websites</span>
-              <span className="stat-label">Establish a powerful online presence that drives sales, builds credibility, and connects with your target audience. I design and develop professional, high-performing websites tailored to your business goals</span>
+              <span className="stat-number">Deliver</span>
+              <span className="stat-label">We consistently provide exceptional results, ensuring success for our clients and partners.</span>
             </div>
           </div>
         </div>
