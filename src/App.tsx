@@ -1,6 +1,6 @@
 // src/App.tsx
 import React, { useEffect, useState } from 'react';
-import Navbar from './components/Navbar1'; // Changed from Navbar1 to Navbar
+import Navbar from './components/Navbar1'; // Changed from Navbar1 to Navbar in a previous step
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
 import Skills from './components/Skills';
@@ -71,7 +71,8 @@ const App: React.FC = () => {
       <Navbar scrollToSection={scrollToSection} />
 
       {/* Wrap each section component in a div with a unique ID for navigation */}
-      <div id="home">
+      {/* Added marginTop to push content below the fixed navbar */}
+      <div id="home" style={{ marginTop: '70px' }}> {/* Adjust this value to match your navbar's actual height */}
         <Hero />
       </div>
       <div id="about-me">
@@ -86,11 +87,15 @@ const App: React.FC = () => {
       <div id="projects">
         <Projects />
       </div>
+      {/* The 'contact-us' ID should uniquely refer to the Message component */}
       <div id="contact-us">
         <Message />
       </div>
-
-      <Footer />
+      {/* The Footer component is placed at the bottom, and now receives the scrollToSection prop.
+          It does not need its own 'id' here unless it is itself a target for navigation. */}
+      <div>
+        <Footer scrollToSection={scrollToSection} />
+      </div>
     </>
   );
 };

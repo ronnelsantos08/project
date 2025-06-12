@@ -64,7 +64,7 @@ function MessageMe() {
         I'm ready to hear from you.
       </p>
       <button className="message-me-button" onClick={handleSendMessage}>
-        Message Us
+        Message Me
       </button>
     </div>
   );
