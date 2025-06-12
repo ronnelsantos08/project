@@ -40,11 +40,11 @@
   }
   
   .skill-card {
-    /* Removed rgba background as we're using a gradient now */
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark)); /* Apply the gradient */
+    /* Adjusted background gradient for softer colors */
+    background: linear-gradient(135deg, rgba(60, 150, 255, 0.1), rgba(147, 51, 234, 0.1)); /* Softer blue and purple with lower opacity */
     
-    /* Retain dynamic border control for JS, but set a subtle initial state */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border for the gradient card */
+    /* Retained dynamic border control for JS, but set a subtle initial state */
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Even more subtle white border */
   
     border-radius: 12px;
     padding: 1.5rem;
@@ -62,10 +62,10 @@
       background 0.3s ease-out, /* Keep background transition if you want subtle changes */
       border-color 0.3s ease-out; 
     
-    /* Shadow for depth */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* Deeper shadow for dark gradient cards */
+    /* Softer shadow for less intensity */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Lighter and less spread out shadow */
     
-    backdrop-filter: blur(8px); /* Frosted glass effect */
+    backdrop-filter: blur(6px); /* Slightly less blur for a softer frosted glass effect */
   
     /* --- Light sweep additions for card START --- */
     position: relative; /* Needed for absolute positioning of pseudo-element */
@@ -73,6 +73,7 @@
     z-index: 0; /* Ensure the card doesn't sit on top of content below */
     /* --- Light sweep additions for card END --- */
   }
+
   
   /* Pseudo-element for the light sweep effect on the card */
   .skill-card::before {

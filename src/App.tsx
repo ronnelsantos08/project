@@ -1,16 +1,16 @@
 // src/App.tsx
 import React, { useEffect, useState } from 'react';
-import Navbar from './components/Navbar1';
+import Navbar from './components/Navbar1'; // Changed from Navbar1 to Navbar
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
 import Skills from './components/Skills';
 import Services from './components/Services';
 import Projects from './components/Projects';
+import Message from './components/Message';
 import Footer from './components/Footer';
 
 const App: React.FC = () => {
   // State to hold the dynamic background color for the body
-  // Start with explicit RGB for --bg-dark to avoid variable resolution issues in JS calculation
   const [bodyBgColor, setBodyBgColor] = useState('rgb(10, 10, 10)');
 
   useEffect(() => {
@@ -18,10 +18,7 @@ const App: React.FC = () => {
       const scrollY = window.scrollY;
       const viewportHeight = window.innerHeight;
 
-      // Define the scroll range over which the body background will transition.
-      // Adjust these values to control when the global background starts and finishes changing.
-      // Example: Start transition when 20% of the viewport has scrolled,
-      // and complete it when 120% of the viewport has scrolled.
+      // Define the scroll range for background transition
       const startTransitionScroll = viewportHeight * 0.2;
       const endTransitionScroll = viewportHeight * 1.2;
 
@@ -30,8 +27,7 @@ const App: React.FC = () => {
         progress = Math.min(1, (scrollY - startTransitionScroll) / (endTransitionScroll - startTransitionScroll));
       }
 
-      // Interpolate RGB values from your dark background color to white
-      // Ensure these RGB values match your CSS variables (var(--bg-dark))
+      // Interpolate RGB values from dark to white
       const darkRgb = [10, 10, 10]; // Corresponds to #0a0a0a
       const whiteRgb = [255, 255, 255]; // Pure white
 
@@ -41,10 +37,8 @@ const App: React.FC = () => {
 
       const newColor = `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
 
-      // Only update state if the color actually changes to prevent unnecessary re-renders
       if (newColor !== bodyBgColor) {
         setBodyBgColor(newColor);
-        // console.log(`Scroll: ${scrollY}, Progress: ${progress.toFixed(2)}, New Body Color: ${newColor}`); // Uncomment for debugging
       }
     };
 
@@ -52,24 +46,51 @@ const App: React.FC = () => {
     handleScroll(); // Call once on mount to set initial state
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [bodyBgColor]); // Re-run effect when bodyBgColor changes (this helps with cleanup)
+  }, [bodyBgColor]);
 
   useEffect(() => {
     // Apply the calculated background color to the body element directly
     document.body.style.backgroundColor = bodyBgColor;
-    // console.log(`Applied Body Background: ${bodyBgColor}`); // Uncomment for debugging
-  }, [bodyBgColor]); // This effect ensures the style is applied whenever bodyBgColor updates
+  }, [bodyBgColor]);
+
+  /**
+   * Function to smoothly scroll to a specific section by its ID.
+   * @param id The ID of the HTML element to scroll to.
+   */
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      // Use scrollIntoView with smooth behavior for a pleasant scrolling experience
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <>
-      <Navbar />
-      <Hero />
-      <AboutUs />
-      <Skills />
-      <Services />
-      <Projects />
+      {/* Pass the scrollToSection function as a prop to the Navbar */}
+      <Navbar scrollToSection={scrollToSection} />
+
+      {/* Wrap each section component in a div with a unique ID for navigation */}
+      <div id="home">
+        <Hero />
+      </div>
+      <div id="about-me">
+        <AboutUs />
+      </div>
+      <div id="skills"> {/* Added ID for Skills, in case you want to link to it later */}
+        <Skills />
+      </div>
+      <div id="services">
+        <Services />
+      </div>
+      <div id="projects">
+        <Projects />
+      </div>
+      <div id="contact-us">
+        <Message />
+      </div>
+
       <Footer />
-      {/* Add other sections below here */}
     </>
   );
 };

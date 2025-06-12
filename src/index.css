@@ -18,6 +18,7 @@ body {
   text-rendering: optimizeLegibility; /* 11 */
   -webkit-font-smoothing: antialiased; /* 12 */
   -moz-osx-font-smoothing: grayscale; /* 12 */
+  
 }
 
 :root {
@@ -38,5 +39,6 @@ body {
   color: var(--text-primary);
 }
 
-/* Import Google Fonts - Newsreader for headings, Open Sans for body text */
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Inter:wght@300;400;500;600;700&display=swap');
+section, div[id] {
+  scroll-margin-top: 80px; /* Adjust to match your navbar height */
+}
