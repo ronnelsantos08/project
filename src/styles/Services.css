@@ -1,0 +1,101 @@
+
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --text-primary: #ffffff;
+  --text-secondary: #b8b9bb;
+  --bg-dark: #0a0a0a;
+  --bg-card: rgba(255, 255, 255, 0.1);
+  --border-color: rgba(255, 255, 255, 0.2);
+}
+
+
+
+/* Container styles (retained from Tailwind's default equivalent) */
+.custom-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Service Background Section */
+.service-section {
+  padding-top: 4rem; /* py-16 */
+  padding-bottom: 4rem; /* py-16 */
+  background-color: white; /* Using dark background variable */
+  padding-left: 1rem; /* px-4 */
+  padding-right: 1rem; /* px-4 */
+}
+
+@media (min-width: 768px) {
+  .service-section {
+    padding-top: 6rem; /* md:py-24 */
+    padding-bottom: 6rem; /* md:py-24 */
+  }
+}
+
+.service-section h2 {
+  font-family: 'Orbitron', sans-serif; /* Futuristic font for main title */
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: 800; /* font-extrabold */
+  text-align: center;
+  /* Gradient text color for the main title */
+  background: linear-gradient(135deg, #2c2b2b 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 3rem; /* mb-12 */
+}
+
+/* Service Grid and Box Styles */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr)); /* grid-cols-1 */
+  gap: 2rem; /* gap-8 */
+}
+
+@media (min-width: 768px) {
+  .service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* md:grid-cols-2 */
+  }
+}
+
+@media (min-width: 1024px) {
+  .service-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* lg:grid-cols-3 */
+  }
+}
+
+.service-box {
+    margin-bottom: 5%;
+  background-color: var(--bg-card); /* Using card background variable */
+  padding: 2rem; /* p-8 */
+  border-radius: 0.75rem; /* rounded-xl */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+  border: 1px solid var(--border-color); /* Using border color variable */
+  transition: all 0.3s ease-in-out; /* transition-all duration-300 ease-in-out */
+}
+
+.service-box:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* hover:shadow-xl */
+  transform: translateY(-0.25rem); /* transform hover:-translate-y-1 */
+  border-color: var(--primary); /* Accent border on hover */
+}
+
+.service-box h1 {
+  font-family: 'Orbitron', sans-serif; /* Futuristic font for box headings */
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700; /* font-bold */
+  color: var(--primary); /* Using primary accent color for headings */
+  margin-bottom: 1rem; /* mb-4 */
+  line-height: 1.25; /* leading-tight */
+}
+
+.service-box p {
+    font-family: "Electrolize", sans-serif;
+  color: rgb(100, 95, 95);
+  font-size: 1rem; /* text-base */
+  line-height: 1.625; /* leading-relaxed */
+}

@@ -4,6 +4,7 @@ import Navbar from './components/Navbar1';
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
 import Skills from './components/Skills';
+import Services from './components/Services';
 
 const App: React.FC = () => {
   // State to hold the dynamic background color for the body
@@ -63,6 +64,7 @@ const App: React.FC = () => {
       <Hero />
       <AboutUs />
       <Skills />
+      <Services />
       {/* Add other sections below here */}
     </>
   );

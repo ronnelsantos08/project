@@ -45,18 +45,26 @@
 }
 
 .about-us-image {
-  width: 60%; /* Slightly reduced image width within the container */
+  width: 60%;
   height: auto;
-  border-radius: 8px; /* Slightly less rounded corners for a more formal feel */
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* Refined box shadow */
-  /* Add a subtle border to define the image edge */
-  border: 1px solid rgba(0, 0, 0, 0.02);
-  /* The transform for parallax will be applied via inline style in AboutUs.tsx */
-  /* Opacity and transition for fade-in are also handled inline */
-  /* Add a slight rotation in the container to create visual interest */
-  transform: rotateY(5deg) rotateX(2deg);
-  transform-style: preserve-3d; /* Required for the perspective effect on the container */
+  border-radius: 8px;
+
+  /* Defined border for structure */
+  border: 1px solid rgba(0, 0, 0, 0.08); 
+
+  /* Stronger box shadow for depth (border shadow effect) */
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.1),  /* soft shadow close to image */
+    0 10px 25px rgba(0, 0, 0, 0.15); /* deeper, spread-out shadow */
+
+  /* 3D rotation for depth */
+  transform: rotateY(10deg) rotateX(5deg);
+  transform-style: preserve-3d;
+
+  /* Optional: enhances anti-aliasing */
+  will-change: transform;
 }
+
 
 /* Gradient Orb for About Us Section */
 .about-us-section .gradient-orb {
