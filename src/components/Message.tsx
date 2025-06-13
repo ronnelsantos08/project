@@ -45,7 +45,7 @@ export default function Message() {
  */
 function MessageMe() {
   // Replace with your desired email address and subject
-  const recipientEmail = 'your-email@gmail.com';
+  const recipientEmail = 'ronnel.santos08@gmail.com';
   const defaultSubject = 'Inquiry from your website';
   const defaultBody = 'Hello,\n\nI would like to discuss...';
 
