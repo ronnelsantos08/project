@@ -22,26 +22,31 @@ function ServiceBackground() {
   const services = [
     {
       title: "Digital Invitation",
-      description: "Say goodbye to paper and hello to elegance with our digital invitations. A modern, eco-friendly way to share your special moments. Whether you're planning a wedding, birthday, or any meaningful celebration, our beautifully designed online invites make it easy to impress your guests, share event details, and collect RSVPs in one seamless experience. Simple to send, stunning to receive your event begins with a click."
+      description:
+        "Say goodbye to paper and hello to elegance with my digital invitation. A modern, eco-friendly way to share your special moment. Whether you're planning a wedding, birthday, or any meaningful celebration, my beautifully designed online invite makes it easy to impress a guest, share event details, and collect RSVPs in one seamless experience. Simple to send, stunning to receive — your event begins with a click.",
     },
     {
       title: "Personal Website",
-      description: "Bring your story to life online with a custom personal website designed just for you. Whether you're building your brand, showcasing your portfolio, or sharing your journey, we craft sleek, responsive, and memorable websites that reflect who you are, with zero hassle and 100% personality."
+      description:
+        "Bring your story to life online with a custom personal website designed just for you. Whether you're building a brand, showcasing a portfolio, or sharing your journey, I craft a sleek, responsive, and memorable site that reflects who you are — with zero hassle and 100% personality.",
     },
     {
       title: "Business Website",
-      description: "Elevate your business with a powerful, custom-built website designed to attract customers, build credibility, and drive growth. From sleek designs to seamless user experiences, we create websites that showcase your brand’s strengths and help you stand out in a competitive market — making your online presence work as hard as you do."
+      description:
+        "Elevate your business with a powerful, custom-built website designed to attract a customer, build credibility, and drive growth. From sleek design to seamless user experience, I create a site that showcases your brand’s strengths and helps you stand out in a competitive market — making your online presence work as hard as you do.",
     },
     {
       title: "Digital Product",
-      description: "Build a cohesive and striking brand presence with expertly crafted digital products — from custom logos and social media graphics to website visuals, digital brochures, and marketing assets. Whether launching a new venture or elevating your current brand, our creative designs combine artistry and strategy to deliver professional, eye-catching digital content that resonates across every platform and drives real impact."
+      description:
+        "Build a cohesive and striking brand presence with expertly crafted digital product — from a custom logo and social media graphic to website visuals, digital brochures, and marketing asset. Whether launching a new venture or elevating your current brand, my creative designs combine artistry and strategy to deliver professional, eye-catching digital content that resonates across every platform and drives real impact.",
     },
     {
-      title: "Freelancing Services",
-      description: "Unlock the power of expert freelancing services tailored to your needs — from web design and digital marketing to content creation and branding. Whether you’re a startup or an established business, I deliver flexible, reliable, and personalized solutions that help you achieve your goals with quality and efficiency, all while providing a seamless collaboration experience."
+      title: "Freelancing Service",
+      description:
+        "Unlock the power of expert freelancing service tailored to your needs — from web design and digital marketing to content creation and branding. Whether you’re a startup or an established business, I deliver a flexible, reliable, and personalized solution that helps you achieve your goal with quality and efficiency, all while providing a seamless collaboration experience.",
     },
   ];
-
+  
   return (
     <section className="service-section">
       <div className="custom-container"> {/* Using custom-container class */}

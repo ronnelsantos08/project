@@ -61,15 +61,15 @@ const Hero: React.FC = () => {
         <div className="stats-container">
           <div className="stat-item">
             <span className="stat-number">Create</span>
-            <span className="stat-label">We build groundbreaking solutions that solve real-world challenges.</span>
+            <span className="stat-label">I build groundbreaking solutions that solve real-world challenges.</span>
           </div>
           <div className="stat-item">
             <span className="stat-number">Innovate</span>
-            <span className="stat-label">We continuously push boundaries, seeking new possibilities and smarter ways forward.</span>
+            <span className="stat-label">I continuously push boundaries, seeking new possibilities and smarter ways forward.</span>
           </div>
           <div className="stat-item">
             <span className="stat-number">Deliver</span>
-            <span className="stat-label">We consistently provide exceptional results, ensuring success for our clients and partners.</span>
+            <span className="stat-label">I consistently deliver exceptional results, ensuring success for each client and partner.</span>
           </div>
         </div>
       </div>

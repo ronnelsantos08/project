@@ -52,7 +52,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
         <a href="#about-me" onClick={() => handleNavLinkClick('about-me')}>About Me</a>
         <a href="#projects" onClick={() => handleNavLinkClick('projects')}>Projects</a>
         <a href="#services" onClick={() => handleNavLinkClick('services')}>Services</a>
-        <a href="#contact-us" onClick={() => handleNavLinkClick('contact-us')}>Contact Us</a>
+        <a href="#contact-us" onClick={() => handleNavLinkClick('contact-us')}>Contact Me</a>
       </div>
 
       <div className="auth-buttons">
@@ -62,7 +62,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
           rel="noopener noreferrer"
           className="message"
         >
-          Message Us
+          Message Me
         </a>
       </div>
     </nav>
