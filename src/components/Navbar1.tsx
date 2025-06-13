@@ -27,7 +27,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
       <a href="#home" className="logo" onClick={() => handleNavLinkClick('home')}>
         <div className='logocontainer'>
           <img
-            src="/logo.png" // <--- IMPORTANT: Replace with the actual path to your logo image
+            src="/logo1.png" // <--- IMPORTANT: Replace with the actual path to your logo image
             alt="RSdev Logo"
             style={{ height: '45px', width: 'auto' }}
           />
