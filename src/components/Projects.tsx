@@ -32,6 +32,11 @@ export default function Projects() {
         lottieSrc="/videos/project3.webm" // Using a WebM video now
         description="A fully responsive website designed for both desktop and mobile, enriched with smooth animations and interactive effects."
       />
+        <ProjectBox
+        title="PDF convertion to Website"
+        lottieSrc="/videos/project4.webm" // Using a WebM video now
+        description="Transform static documents into fully mobile responsive, interactive websites."
+      />
 
       {/* You can add more ProjectBox instances here if needed */}
       {/*
