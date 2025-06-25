@@ -16,6 +16,16 @@
     font-family: 'Inter', sans-serif;
   }
 
+  .flex-box {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    align-content: flex-start;
+  }
+
 
   /* Responsive padding for app container */
   @media (min-width: 640px) { /* sm breakpoint */
@@ -68,15 +78,24 @@
 
   /* ProjectBox component container */
   .project-box {
+    margin: 5%;
     margin-bottom: 5%;
     background-color: #1F2937; /* bg-gray-800 */
     border-radius: 1rem; /* rounded-2xl */
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1), 0 0 40px rgba(59, 130, 246, 0.2); /* shadow-2xl shadow-blue-500/20 */
-    padding: 1.5rem; /* p-6 */
-    max-width: 24rem; /* max-w-sm */
-    transform: scale(1);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
-    border: 1px solid #374151; /* border border-gray-700 */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                0 8px 10px -6px rgba(0, 0, 0, 0.1),
+                0 0 40px rgba(59, 130, 246, 0.2); /* shadow-2xl shadow-blue-500/20 */
+    padding: 1.5rem;
+    max-width: 24rem;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid #374151;
+    will-change: transform;
+    perspective: 1000px; /* Enables 3D space */
+  }
+  
+  .project-box:hover {
+    transform: perspective(1000px) rotateX(4deg) rotateY(-4deg) scale(1.02);
+    box-shadow: 0 12px 25px rgba(59, 130, 246, 0.3);
   }
 
   /* Responsive max-width for project box */
@@ -97,12 +116,7 @@
   }
 
   /* ProjectBox hover effects */
-  .project-box:hover {
-    transform: scale(1.05); /* hover:scale-105 */
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1), 0 0 50px rgba(59, 130, 246, 0.5); /* hover:shadow-blue-500/50 */
-    border-color: #3B82F6; /* hover:border-blue-500 */
-  }
-
+ 
   /* Flex container inside ProjectBox */
   .project-content-row {
     display: flex;
