@@ -67,7 +67,7 @@ function NewFooter({ scrollToSection }: NewFooterProps) { // Accept scrollToSect
               <li><a href="#projects" onClick={() => handleNavLinkClick('projects')}>Projects</a></li>
               <li><a href="#services" onClick={() => handleNavLinkClick('services')}>Services</a></li>
               {/* Added Contact Us link for consistency with Navbar */}
-              <li><a href="#contact-us" onClick={() => handleNavLinkClick('contact-us')}>Contact Us</a></li>
+              <li><a href="#contact-us" onClick={() => handleNavLinkClick('contact-us')}>Contact Me</a></li>
             </ul>
           </div>
           <div className="footer-social">

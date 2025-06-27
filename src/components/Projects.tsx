@@ -1,7 +1,6 @@
 import '../styles/Projects.css';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
-// Props interface
 interface ProjectBoxProps {
   title: string;
   lottieSrc: string;
@@ -9,29 +8,35 @@ interface ProjectBoxProps {
   href?: string;
 }
 
-// ProjectBox component
+// Moved ProjectBox ABOVE the Projects component
 function ProjectBox({ title, lottieSrc, description, href }: ProjectBoxProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
-  const handleMouseEnter = () => {
-    if (videoRef.current) {
-      videoRef.current.play();
-    }
-  };
+  useEffect(() => {
+    const videoEl = videoRef.current;
+    if (!videoEl) return;
 
-  const handleMouseLeave = () => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
-  };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          videoEl.play();
+        } else {
+          videoEl.pause();
+          videoEl.currentTime = 0;
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(videoEl);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   const content = (
-    <div
-      className="project-box"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <div className="project-box">
       <div className="project-content-row">
         <div className="media-container">
           <video
@@ -40,6 +45,7 @@ function ProjectBox({ title, lottieSrc, description, href }: ProjectBoxProps) {
             loop
             muted
             playsInline
+            preload="none"
             className="project-video"
           >
             Your browser does not support the video tag.
@@ -68,7 +74,7 @@ function ProjectBox({ title, lottieSrc, description, href }: ProjectBoxProps) {
   );
 }
 
-// Main Projects component
+// Now use ProjectBox inside the default exported component
 export default function Projects() {
   return (
     <div className="app-container">

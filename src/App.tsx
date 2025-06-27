@@ -6,6 +6,7 @@ import AboutUs from './components/AboutUs';
 import Skills from './components/Skills';
 import Services from './components/Services';
 import Projects from './components/Projects';
+import JobExperience from './components/JobExperience';
 import Message from './components/Message';
 import Footer from './components/Footer';
 
@@ -86,6 +87,9 @@ const App: React.FC = () => {
       </div>
       <div id="projects">
         <Projects />
+      </div>
+      <div id="job">
+        <JobExperience />
       </div>
       {/* The 'contact-us' ID should uniquely refer to the Message component */}
       <div id="contact-us">

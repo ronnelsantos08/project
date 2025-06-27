@@ -1,0 +1,235 @@
+
+/* Import Google Fonts for consistency with Hero & Services components */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:wght@700&family=Orbitron:wght@400;500;700&family=Electrolize&display=swap');
+
+/* CSS Variables from the theme's :root */
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --text-primary: #ffffff;
+  --text-secondary: #b8b9bb;
+  --bg-dark: #292929;
+  --bg-card: rgba(255, 255, 255, 0.1);
+  --border-color: rgba(255, 255, 255, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+#job-experience {
+    background: linear-gradient(to bottom right, #000000, #1F2937);
+    color: #F3F4F6;
+    padding-top: 4rem; /* py-16 from Services.css */
+    padding-bottom: 4rem; /* py-16 from Services.css */
+    padding-left: 1rem; /* px-4 from Services.css */
+    padding-right: 1rem; /* px-4 from Services.css */
+    font-family: 'Inter', sans-serif; /* Inter for overall text */
+    color: var(--text-primary);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  #job-experience {
+    padding-top: 6rem; /* md:py-24 from Services.css */
+    padding-bottom: 6rem; /* md:py-24 from Services.css */
+  }
+}
+
+.job-experience-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* Custom container max-width from Services.css */
+}
+
+.job-experience-header {
+    text-align: center;
+    margin-bottom: 3rem; /* mb-12 from Services.css */
+    max-width: 900px; /* Aligned with Services header width */
+}
+
+.job-experience-header h1 {
+    font-family: 'Orbitron', sans-serif; /* Font from Services h2 */
+    font-size: 2.25rem; /* text-4xl from Services h2 */
+    font-weight: 800; /* font-extrabold from Services h2 */
+    text-align: center;
+    /* Gradient text color from Services h2 - adjusted for dark background */
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1.5rem; /* Consistent spacing */
+    letter-spacing: -0.03em; /* From Hero h1 */
+}
+
+.job-experience-header p {
+    font-family: "Electrolize", sans-serif; /* Font from Services p */
+    font-size: 1.2rem; /* Consistent font size */
+    line-height: 1.8;
+    color: var(--text-secondary); /* Consistent text color */
+    font-weight: 400;
+}
+
+.job-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Adjusted minmax for card size */
+    gap: 2rem; /* gap-8 from Services.css */
+    width: 100%;
+    justify-content: center;
+}
+
+.job-card {
+    margin-bottom: 0; /* Remove previous margin-bottom from .service-box */
+    background-color: var(--bg-card); /* Using card background variable */
+    padding: 2rem; /* p-8 from Services.css */
+    border-radius: 0.75rem; /* rounded-xl from Services.css */
+    /* Adjusted shadow for better contrast on dark background, similar to Services.css */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color); /* Using border color variable */
+    transition: all 0.3s ease-in-out; /* transition-all duration-300 ease-in-out from Services.css */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.job-card:hover {
+    /* Adjusted hover shadow for better contrast on dark background, similar to Services.css */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.15);
+    transform: translateY(-0.25rem); /* transform hover:-translate-y-1 from Services.css */
+    border-color: var(--primary); /* Accent border on hover from Services.css */
+}
+
+.job-card h2 {
+    font-family: 'Orbitron', sans-serif; /* Font from Services h1 */
+    font-size: 1.5rem; /* text-2xl from Services h1 */
+    font-weight: 700; /* font-bold from Services h1 */
+    color: var(--primary); /* Using primary accent color for headings */
+    margin-bottom: 1rem; /* mb-4 from Services h1 */
+    line-height: 1.25; /* leading-tight from Services h1 */
+}
+
+.job-card h3 {
+    font-family: 'Orbitron', sans-serif; /* Font consistent with other Orbitron usage */
+    font-size: 1.1rem; /* Adjusted size */
+    font-weight: 500;
+    color: var(--text-secondary); /* Secondary text color for consistency */
+    margin-bottom: 0.5rem;
+}
+
+.job-card .dates {
+    font-family: 'Orbitron', sans-serif; /* Font consistent with other Orbitron usage */
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-secondary); /* Secondary text color for consistency */
+    margin-bottom: 1.5rem;
+}
+
+.job-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.job-card ul li {
+    font-family: "Electrolize", sans-serif; /* Font from Services p */
+    color: var(--text-primary); /* Primary text color for description */
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.8rem;
+}
+
+.job-card ul li::before {
+    content: '•';
+    color: var(--primary); /* Use primary accent color for bullet point */
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1;
+    top: 0.05em;
+}
+
+.job-card ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive Adjustments (aligned with Services.css breakpoints) */
+@media (max-width: 1199px) and (min-width: 768px) { /* md breakpoint for services */
+    .job-list {
+        grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+        gap: 1.5rem; /* Consistent gap */
+    }
+    .job-experience-header h1 {
+        font-size: 3rem; /* text-3xl approx */
+    }
+    .job-experience-header p {
+        font-size: 1.1rem;
+    }
+    .job-card {
+        padding: 1.5rem; /* Adjusted padding */
+    }
+    .job-card h2 {
+        font-size: 1.3rem;
+    }
+    .job-card h3 {
+        font-size: 1rem;
+    }
+    .job-card ul li {
+        font-size: 0.95rem;
+        padding-left: 1.5rem;
+    }
+    .job-card ul li::before {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 767px) { /* Mobile breakpoint for services */
+    #job-experience {
+        padding: 3rem 1rem; /* Reduced padding for mobile */
+    }
+    .job-list {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 1rem; /* Smaller gap */
+    }
+    .job-experience-header h1 {
+        font-size: 2rem; /* text-2xl approx */
+        margin-bottom: 1rem;
+    }
+    .job-experience-header p {
+        font-size: 0.9rem;
+    }
+    .job-card {
+        padding: 1rem; /* Smaller padding for mobile cards */
+    }
+    .job-card h2 {
+        font-size: 1.2rem;
+    }
+    .job-card h3 {
+        font-size: 0.9rem;
+    }
+    .job-card .dates {
+        font-size: 0.8rem;
+    }
+    .job-card ul li {
+        font-size: 0.85rem;
+        padding-left: 1.2rem;
+    }
+    .job-card ul li::before {
+        font-size: 1.1rem;
+    }
+}
