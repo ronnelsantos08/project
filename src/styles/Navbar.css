@@ -92,7 +92,7 @@ nav {
 .nav-links a {
   color: var(--text-primary);
   text-decoration: none;
-  font-size: 1rem;
+  font-size: clamp(.1rem, .9vw, 100rem);
   font-weight: 500;
   /* Keep the transition for color change */
   transition: color 0.3s ease; 
@@ -139,7 +139,7 @@ nav {
   border-radius: 12px;
   border: none;
   cursor: pointer;
-  font-size: 0.95rem;
+  font-size: clamp(.1rem, .9vw, 100rem);
   font-weight: 500;
   transition: all 0.3s ease;
   background: linear-gradient(135deg, var(--primary), var(--primary-dark));
