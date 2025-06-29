@@ -84,6 +84,7 @@ export default function Projects() {
           title="Mobile Website"
           lottieSrc="/videos/project1.webm"
           description="This website is specially made for mobile devices, ensuring a smooth, responsive, and user-friendly experience."
+          href="https://jcwedding.onrender.com"
         />
         <ProjectBox
           title="Business Website"
@@ -95,6 +96,7 @@ export default function Projects() {
           title="Desktop and Mobile Responsive Website"
           lottieSrc="/videos/project3.webm"
           description="A fully responsive website designed for both desktop and mobile, enriched with smooth animations and interactive effects."
+          href="https://jhobethdatiles.onrender.com"
         />
         <ProjectBox
           title="PDF convertion to Website"
