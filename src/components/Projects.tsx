@@ -89,7 +89,7 @@ export default function Projects() {
           title="Business Website"
           lottieSrc="/videos/project2.webm"
           description="A professional website designed for photo and video studios—showcasing creativity, quality, and visual storytelling."
-          href="https://thejcstudios.onrender.com"
+          href="https://thejcstudios.com"
         />
         <ProjectBox
           title="Desktop and Mobile Responsive Website"
