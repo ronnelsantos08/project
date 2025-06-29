@@ -14,10 +14,11 @@
 }
 .about-us-content h1 {
   font-family: "Newsreader", serif;
-  font-size: 3.75rem; /* Adjusted font size */
+  font-size: clamp(.1rem, 3.5vw, 100rem);
   font-weight: 600; /* Semi-bold for a strong heading */
   color: var(--heading-primary); /* Assuming you have a specific heading color */
   letter-spacing: -0.01em; /* Slightly reduce letter spacing for a cleaner look */
+  margin-bottom: 3%;
   
 }
 
@@ -30,7 +31,7 @@
 
 .about-us-content p {
   font-family: "Newsreader", serif;
-  font-size: 1.5rem; /* Slightly reduced font size for better readability */
+  font-size: clamp(.1rem, 1.5vw, 100rem);
   line-height: 1.8; /* Improved line height for better reading experience */
   color: var(--text-secondary);
   /* Add a subtle text shadow for depth */
@@ -48,6 +49,7 @@
   width: 70%; /* Fill container width */
   height: auto;
   border-radius: 8px;
+  margin-bottom: 10%;
 
   /* Defined border for structure */
   border: 1px solid rgba(0, 0, 0, 0.08); 
@@ -100,6 +102,7 @@
         overflow: hidden;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         padding: 6rem 3rem;
         min-height: auto;
     }
@@ -125,6 +128,9 @@
 
     .about-us-image-container {
       width: 70%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: relative; /* Keep relative on mobile for normal flow */
       top: auto;
       transform: none; /* Remove any lingering transforms on mobile */
