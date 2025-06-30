@@ -80,17 +80,17 @@ export default function Projects() {
     <div className="app-container">
       <h1 className="main-title">Innovative Projects Showcase</h1>
       <div className="flex-box">
+      <ProjectBox
+          title="Business Website"
+          lottieSrc="/videos/project2.webm"
+          description="A professional website designed for photo and video studios—showcasing creativity, quality, and visual storytelling."
+          href="https://thejcstudios.com"
+        />
         <ProjectBox
           title="Mobile Website"
           lottieSrc="/videos/project1.webm"
           description="This website is specially made for mobile devices, ensuring a smooth, responsive, and user-friendly experience."
           href="https://jcwedding.onrender.com"
-        />
-        <ProjectBox
-          title="Business Website"
-          lottieSrc="/videos/project2.webm"
-          description="A professional website designed for photo and video studios—showcasing creativity, quality, and visual storytelling."
-          href="https://thejcstudios.com"
         />
         <ProjectBox
           title="Desktop and Mobile Responsive Website"
