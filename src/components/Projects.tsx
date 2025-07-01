@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 interface ProjectBoxProps {
   title: string;
   lottieSrc: string;
-  description: string;
+  description: React.ReactNode;
   href?: string;
 }
 
@@ -81,11 +81,25 @@ export default function Projects() {
       <h1 className="main-title">Innovative Projects Showcase</h1>
       <div className="flex-box">
       <ProjectBox
-          title="Business Website"
-          lottieSrc="/videos/project2.webm"
-          description="A professional website designed for photo and video studios—showcasing creativity, quality, and visual storytelling."
-          href="https://thejcstudios.com"
-        />
+  title="Business Website"
+  lottieSrc="/videos/project2.webm"
+  description={
+    <>
+    <h5>Professional website designed for photo and video studios Showcases creativity and quality. Focuses on visual storytelling</h5>
+    <ul>
+  <li>Core frontend tech (React, Vite, TypeScript)</li>
+  <li>Content management (Contentful)</li>
+  <li>APIs (Google Drive API, SMTP Email)</li>
+  <li>UX & accessibility (Responsive Design, a11y)</li>
+  <li>SEO and analytics (SEO Optimization, Google Analytics)</li>
+  <li>Testing and version control (Unit Testing, Git)</li>
+  <li>Deployment and automation (CI/CD, Vercel Serverless Functions)</li>
+  <li>Performance optimization</li>
+</ul>
+    </>
+  }
+  href="https://thejcstudios.com"
+/>
         <ProjectBox
           title="Mobile Website"
           lottieSrc="/videos/project1.webm"

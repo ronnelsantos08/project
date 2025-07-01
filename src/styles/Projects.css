@@ -214,3 +214,17 @@
       font-size: 1.125rem; /* sm:text-lg */
     }
   }
+
+  .flex-box h5 {
+    color: #D1D5DB;
+    font-size: 1rem;
+    line-height: 1.625;
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 5%;
+  }
+
+  .flex-box ul {
+    margin-left: 5%;
+  }
+  
