@@ -112,11 +112,7 @@ export default function Projects() {
           description="A fully responsive website designed for both desktop and mobile, enriched with smooth animations and interactive effects."
           href="https://ourwedding.thejcstudios.com"
         />
-        <ProjectBox
-          title="PDF convertion to Website"
-          lottieSrc="/videos/project4.webm"
-          description="Transform static documents into fully mobile responsive, interactive websites."
-        />
+      
       </div>
     </div>
   );
